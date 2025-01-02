@@ -13,6 +13,7 @@ services:
       context: .
       args:
         OLLAMA_BASE_URL: '/ollama'
+        USE_CUDA: 'false'
       dockerfile: Dockerfile
     container_name: open-webui
     volumes:
