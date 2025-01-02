@@ -25,7 +25,6 @@
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { Toaster, toast } from 'svelte-sonner';
-	import Header from '$lib/components/Header.svelte';
 
 	import { getBackendConfig } from '$lib/apis';
 	import { getSessionUser } from '$lib/apis/auths';
@@ -295,5 +294,3 @@
 	richColors
 	position="top-right"
 />
-
-<Header />

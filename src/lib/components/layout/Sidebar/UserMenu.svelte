@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { DropdownMenu } from 'bits-ui';
 	import { createEventDispatcher, getContext, onMount } from 'svelte';
+	import { ExternalLink } from 'lucide-svelte';
 
 	import { flyAndScale } from '$lib/utils/transitions';
 	import { goto } from '$app/navigation';
@@ -89,6 +90,38 @@
 				<div class=" self-center truncate">{$i18n.t('Archived Chats')}</div>
 			</button>
 
+			<a
+				href="https://revou.co"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="flex rounded-md py-2 px-3 w-full hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+				on:click={() => {
+					show = false;
+					if ($mobile) showSidebar.set(false);
+				}}
+			>
+				<div class="self-center mr-3">
+					<ExternalLink class="size-5" strokeWidth="1.5" />
+				</div>
+				<div class="self-center truncate">RevU Website</div>
+			</a>
+
+			<a
+				href="https://revou-job-tracker.softr.app"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="flex rounded-md py-2 px-3 w-full hover:bg-gray-50 dark:hover:bg-gray-800 transition"
+				on:click={() => {
+					show = false;
+					if ($mobile) showSidebar.set(false);
+				}}
+			>
+				<div class="self-center mr-3">
+					<ExternalLink class="size-5" strokeWidth="1.5" />
+				</div>
+				<div class="self-center truncate">Job Tracker</div>
+			</a>
+
 			{#if role === 'admin'}
 				<a
 					class="flex rounded-md py-2 px-3 w-full hover:bg-gray-50 dark:hover:bg-gray-800 transition"
@@ -160,6 +193,7 @@
 					localStorage.removeItem('token');
 					location.href = '/auth';
 					show = false;
+					if ($mobile) showSidebar.set(false);
 				}}
 			>
 				<div class=" self-center mr-3">
